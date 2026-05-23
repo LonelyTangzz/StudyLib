@@ -1,0 +1,29 @@
+{
+  "_comment_top": "这是 MCP 配置范例（不是真实生效的文件，文件名带 .example）。要启用就复制为 .mcp.json 放到项目根。",
+
+  "mcpServers": {
+
+    "filesystem": {
+      "_comment": "官方 filesystem MCP server，用 stdio 与子进程通信。把指定目录暴露成 read/write/list 工具。",
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "E:/WorkSpace/Harness Demo/playground"]
+    },
+
+    "sqlite": {
+      "_comment": "把一个 SQLite 文件当成 MCP 数据源，模型能直接 list_tables / query。",
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-sqlite", "--db-path", "./playground/demo.db"]
+    },
+
+    "linear": {
+      "_comment": "Remote MCP server（HTTP）示例。OAuth 头通过 env 注入。",
+      "type": "http",
+      "url": "https://mcp.linear.app/sse",
+      "headers": {
+        "Authorization": "Bearer ${LINEAR_API_KEY}"
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "_comment_top": "演示用 settings.json — 真实项目里不要写 _comment 这种字段，这里只是讲解。三层合并优先级：local > project > user。",
+
+  "env": {
+    "CLAUDE_DEMO_PROJECT": "harness-demo",
+    "CLAUDE_DEMO_LOG_DIR": "${CLAUDE_PROJECT_DIR}/.claude/logs"
+  },
+
+  "permissions": {
+    "_comment": "allow 里的项是工具调用模式，命中即免提示。ask 是仍要询问。deny 是直接拒绝。",
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(python:*)",
+      "Read(//**)",
+      "Glob",
+      "Grep"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf /*)",
+      "Bash(curl * | sh)",
+      "Bash(curl * | bash)",
+      "Read(./.env)",
+      "Read(./**/.env)",
+      "Read(./**/*credentials*)"
+    ]
+  },
+
+  "hooks": {
+    "_comment": "每个 hook 事件可以注册多个 command。matcher 用于按工具名过滤；为空表示所有工具。",
+
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${CLAUDE_PROJECT_DIR}/.claude/hooks/block-dangerous.ps1\""
+          }
+        ]
+      }
+    ],
+
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${CLAUDE_PROJECT_DIR}/.claude/hooks/log-edits.ps1\""
+          }
+        ]
+      }
+    ],
+
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${CLAUDE_PROJECT_DIR}/.claude/hooks/stop-notify.ps1\""
+          }
+        ]
+      }
+    ]
+  }
+}

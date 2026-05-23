@@ -1,0 +1,31 @@
+# Claude Code Harness 本地状态（不该入库的运行时产物）
+.claude/logs/
+.claude/settings.local.json
+.claude/.cache/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Env files
+.env
+.env.local
+*.env
