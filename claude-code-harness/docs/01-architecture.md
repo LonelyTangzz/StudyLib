@@ -45,19 +45,19 @@
 | 步骤 | 由谁执行 | 做什么 |
 |---|---|---|
 | 1 | Harness | 启动时合并 user/project/local 三层 settings |
-| 2 | Harness | 把 [CLAUDE.md](../CLAUDE.md) 与父目录 CLAUDE.md 拼接到系统提示 |
+| 2 | Harness | 把 [CLAUDE.md](../../CLAUDE.md) 与父目录 CLAUDE.md 拼接到系统提示 |
 | 3 | Harness | 把可用工具清单（含 MCP server 暴露的）也塞进系统提示 |
 | 4 | Harness | 列出 skills 的 frontmatter（name + description），**正文不加载** |
 | 5 | Harness | 把用户消息附上"环境块"（OS、cwd、git 状态）发给模型 |
 | 6 | 模型 | 决定先 Read sample.py |
-| 7 | Harness | **PreToolUse hook 触发**（[block-dangerous.ps1](../.claude/hooks/block-dangerous.ps1) 检查；Read 不命中黑名单，放行） |
+| 7 | Harness | **PreToolUse hook 触发**（[block-dangerous.ps1](../../.claude/hooks/block-dangerous.ps1) 检查；Read 不命中黑名单，放行） |
 | 8 | Harness | 检查 permissions：Read 命中 allow，免提示直接执行 |
 | 9 | Harness | 把文件内容作为 tool_result 喂回模型 |
 | 10 | 模型 | 决定 Edit 修改文件 |
 | 11 | Harness | PreToolUse → permissions → 执行 Edit |
-| 12 | Harness | **PostToolUse hook 触发**（[log-edits.ps1](../.claude/hooks/log-edits.ps1) 写日志） |
+| 12 | Harness | **PostToolUse hook 触发**（[log-edits.ps1](../../.claude/hooks/log-edits.ps1) 写日志） |
 | 13 | 模型 | 输出"我把 sample.py 改好了" |
-| 14 | Harness | **Stop hook 触发**（[stop-notify.ps1](../.claude/hooks/stop-notify.ps1) 记录回合结束） |
+| 14 | Harness | **Stop hook 触发**（[stop-notify.ps1](../../.claude/hooks/stop-notify.ps1) 记录回合结束） |
 
 ---
 

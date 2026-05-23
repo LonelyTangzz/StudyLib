@@ -28,7 +28,7 @@
 
 ## 7.3 在本仓库配置 MCP
 
-[.claude/mcp.json.example](../.claude/mcp.json.example) 演示了三种 server：
+[.claude/mcp.json.example](../../.claude/mcp.json.example) 演示了三种 server：
 
 ### stdio 例：filesystem
 
@@ -71,7 +71,7 @@
 ## 7.4 启用流程
 
 1. 把 `mcp.json.example` 复制为 `.mcp.json`（无前缀点也行：`mcp.json`，看版本）。
-2. 在 [.claude/settings.json](../.claude/settings.json) 里加 `"enableAllProjectMcpServers": true`，或第一次启动时按提示授权。
+2. 在 [.claude/settings.json](../../.claude/settings.json) 里加 `"enableAllProjectMcpServers": true`，或第一次启动时按提示授权。
 3. 重启 Claude Code。
 4. 让模型 "list available tools" —— 应该看到 `mcp__filesystem__*` 之类的工具。
 
@@ -106,7 +106,7 @@ MCP 的好处是工具发现自动化 + 协议统一；坏处是要装/跑 serve
 
 ## 7.7 试试看（不需要真启用）
 
-1. 阅读 [mcp.json.example](../.claude/mcp.json.example) 三种配置。
+1. 阅读 [mcp.json.example](../../.claude/mcp.json.example) 三种配置。
 2. 想想你日常用的哪个系统适合接 MCP（数据库？工单？知识库？）。
 3. 去 [modelcontextprotocol.io](https://modelcontextprotocol.io) 浏览现成的 server 列表。
 
@@ -126,4 +126,4 @@ MCP 的好处是工具发现自动化 + 协议统一；坏处是要装/跑 serve
 | [06](06-slash-commands.md) | 自定义 /命令 |
 | [07](07-mcp.md) | MCP 外部系统接入 |
 
-加上 [CLAUDE.md](../CLAUDE.md) 自动注入，**共 8 个机制**就构成了 Claude Code Harness 的全部"用户可定制面"。
+加上 [CLAUDE.md](../../CLAUDE.md) 自动注入，**共 8 个机制**就构成了 Claude Code Harness 的全部"用户可定制面"。

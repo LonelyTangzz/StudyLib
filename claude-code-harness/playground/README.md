@@ -16,7 +16,7 @@
 
 2. **触发 PreToolUse hook 拦截**
    - 让 Claude 跑 `rm -rf /tmp/test`（演示用，安全路径但命中正则）
-   - 应被 [.claude/hooks/block-dangerous.ps1](../.claude/hooks/block-dangerous.ps1) 拦下
+   - 应被 [.claude/hooks/block-dangerous.ps1](../../.claude/hooks/block-dangerous.ps1) 拦下
 
 3. **触发 Subagent**
    - 说"用 code-explainer 解释 [sample.py](sample.py)"

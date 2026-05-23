@@ -37,7 +37,7 @@ model: sonnet                  # 可选：换便宜/快速模型
 
 正文就是 subagent 的系统提示。它会被 Harness 当作"派单 prompt 模板"。
 
-本仓库的例子：[.claude/agents/code-explainer.md](../.claude/agents/code-explainer.md)
+本仓库的例子：[.claude/agents/code-explainer.md](../../.claude/agents/code-explainer.md)
 
 ---
 

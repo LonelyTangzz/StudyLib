@@ -54,7 +54,7 @@ Claude Code 启动时：
 
 ## 4.3 本仓库的 skill
 
-[.claude/skills/greet-user/SKILL.md](../.claude/skills/greet-user/SKILL.md)
+[.claude/skills/greet-user/SKILL.md](../../.claude/skills/greet-user/SKILL.md)
 
 打开看 frontmatter 和正文的写法。试触发方法：说"问候一下用户" —— Harness 会通知模型 skill 可用，模型会请求加载。
 
@@ -85,7 +85,7 @@ Claude Code 自带一些 skills（如 `update-config`、`verify`、`simplify`、
 ## 4.6 试试看
 
 1. 说："问候我一下" —— 观察是否触发 greet-user。
-2. 在 [SKILL.md](../.claude/skills/greet-user/SKILL.md) 的 description 里删掉"问候"两个字，再问同样的话 —— 你会发现模型不再触发，因为描述匹配度下降了。
+2. 在 [SKILL.md](../../.claude/skills/greet-user/SKILL.md) 的 description 里删掉"问候"两个字，再问同样的话 —— 你会发现模型不再触发，因为描述匹配度下降了。
 3. 新建 `.claude/skills/echo-reverse/SKILL.md`，让它"接收一段文字、反转后输出"。重启对话，看模型能否在合适时机调用。
 
 下一章：[05-subagents.md](05-subagents.md) — Subagent 独立上下文窗口。
