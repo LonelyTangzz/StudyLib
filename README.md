@@ -12,6 +12,7 @@
 | --- | --- | --- | --- |
 | 🤖 Claude Code Harness 演示 | [claude-code-harness/](claude-code-harness/) | 用一个**可运行**的完整 demo 讲清 Claude Code 运行时的所有扩展点（settings、hooks、skills、subagents、slash commands、MCP、CLAUDE.md） | 7 章 + 1 套可运行配置 |
 | 🏛️ 架构师能力手册 | [architect-handbook/](architect-handbook/) | 系统讲解架构师需掌握的能力体系：从技术基础到分布式、从安全到 DevOps、从业务到软技能 | 16 章 / 约 5000 行 |
+| 🦀 Rust vs TypeScript | [rust-vs-typescript/](rust-vs-typescript/) | 面向保费保单计算场景的 Rust vs TS 对比 + Rust 基础语法 + 渐进引入路径 | 8 章 |
 
 ---
 
@@ -35,9 +36,13 @@ StudyLib/
 │   ├── docs/                       ← 7 章详解
 │   └── playground/                 ← 触发各机制的试验场
 │
-└── architect-handbook/             ← 板块 2：架构师手册
-    ├── README.md                   ← 手册总索引
-    └── 01-…-16-….md                ← 16 章
+├── architect-handbook/             ← 板块 2：架构师手册
+│   ├── README.md                   ← 手册总索引
+│   └── 01-…-16-….md                ← 16 章
+│
+└── rust-vs-typescript/             ← 板块 3：Rust vs TS（保费场景）
+    ├── README.md                   ← 板块导览 + 速判表
+    └── 01-…-08-….md                ← 8 章（对比/语法/所有权/错误处理/精度/互调/决策）
 ```
 
 > ⚠️ **注意**：`.claude/` 必须留在仓库根目录，因为 Claude Code 启动时只会读取当前工作目录下的 `.claude/`。不要把它挪进 `claude-code-harness/`，否则配置全部失效。
@@ -51,6 +56,9 @@ StudyLib/
 
 - **想系统补架构师知识 / 准备晋升答辩 / 找特定主题查阅**
   → 进 [architect-handbook/](architect-handbook/)，从它的 README 开始读
+
+- **想评估 Rust 是否值得引入你们的 TS 保费/金融计算项目**
+  → 进 [rust-vs-typescript/](rust-vs-typescript/)，先看 README 的速判表，再决定深读哪几章
 
 - **想知道这个仓库为什么这么组织、CLAUDE.md / .claude/ 是什么**
   → 继续读下面
